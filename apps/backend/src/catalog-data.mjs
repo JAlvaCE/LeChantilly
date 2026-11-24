@@ -1,0 +1,383 @@
+export default {
+  "schemaVersion": 1,
+  "currency": "COP",
+  "business": {
+    "name": "Le Chantilly",
+    "location": "Piedecuesta, Santander, Colombia",
+    "instagram": "https://www.instagram.com/lechantillys/",
+    "whatsapp": null,
+    "whatsappStatus": "pending_owner_confirmation"
+  },
+  "categories": [
+    "tortas",
+    "galletas",
+    "postres",
+    "tartaletas",
+    "regalos"
+  ],
+  "products": [
+    {
+      "id": "LC-001",
+      "slug": "tortas-personalizadas",
+      "name": "Tortas personalizadas",
+      "category": "tortas",
+      "description": "Tortas decoradas para cumpleaños y momentos especiales.",
+      "sourceUrl": "https://www.instagram.com/p/DV-FElCFucl/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": true,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-002",
+      "slug": "tortas-infantiles",
+      "name": "Tortas infantiles",
+      "category": "tortas",
+      "description": "Diseños temáticos para celebraciones infantiles.",
+      "sourceUrl": "https://www.instagram.com/p/DV-FElCFucl/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": true,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-003",
+      "slug": "red-velvet",
+      "name": "Red Velvet",
+      "category": "tortas",
+      "description": "Clásico de la pastelería, publicado en distintas presentaciones.",
+      "sourceUrl": "https://www.instagram.com/p/CPhDccDtPu0/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-004",
+      "slug": "genovesa-de-tres-leches",
+      "name": "Genovesa de tres leches",
+      "category": "tortas",
+      "description": "Una de las referencias clásicas de Le Chantilly.",
+      "sourceUrl": "https://www.instagram.com/p/CPMPoCsNwmC/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-005",
+      "slug": "budin-de-naranja-y-frutos-secos",
+      "name": "Budín de naranja y frutos secos",
+      "category": "postres",
+      "description": "Una combinación de naranja y frutos secos.",
+      "sourceUrl": "https://www.instagram.com/p/Cqt4_O-tHZ_/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-006",
+      "slug": "brazo-gitano-de-fresas-y-almendras",
+      "name": "Brazo gitano de fresas y almendras",
+      "category": "postres",
+      "description": "Relleno de crema chantilly y fresas, con almendras.",
+      "sourceUrl": "https://www.instagram.com/p/B0jiFr_g1-u/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-007",
+      "slug": "brazo-gitano-de-chocolate-y-fresas",
+      "name": "Brazo gitano de chocolate y fresas",
+      "category": "postres",
+      "description": "Relleno de chantilly y fresas, con cobertura de chocolate.",
+      "sourceUrl": "https://www.instagram.com/p/CAx1pNdHX4R/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-008",
+      "slug": "tartaleta-de-chocolate-y-mani",
+      "name": "Tartaleta de chocolate y maní",
+      "category": "tartaletas",
+      "description": "Parte de la selección surtida de tartaletas.",
+      "sourceUrl": "https://www.instagram.com/reel/CsHQpZbJWZY/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-009",
+      "slug": "tartaleta-de-durazno",
+      "name": "Tartaleta de durazno",
+      "category": "tartaletas",
+      "description": "Con crema pastelera y durazno.",
+      "sourceUrl": "https://www.instagram.com/reel/CsHQpZbJWZY/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-010",
+      "slug": "tartaleta-de-mora-y-merengue",
+      "name": "Tartaleta de mora y merengue",
+      "category": "tartaletas",
+      "description": "Mora y merengue en formato individual.",
+      "sourceUrl": "https://www.instagram.com/reel/CsHQpZbJWZY/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-011",
+      "slug": "mini-lemon-pie",
+      "name": "Mini Lemon Pie",
+      "category": "tartaletas",
+      "description": "Una pequeña tarta de limón.",
+      "sourceUrl": "https://www.instagram.com/reel/CsHQpZbJWZY/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-012",
+      "slug": "galletas-chocochips",
+      "name": "Galletas chocochips",
+      "category": "galletas",
+      "description": "Galletas con chips de chocolate.",
+      "sourceUrl": "https://www.instagram.com/p/B2aFhR5A0Ev/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-013",
+      "slug": "galletas-de-chocolate-y-zucchini",
+      "name": "Galletas de chocolate y zucchini",
+      "category": "galletas",
+      "description": "Una combinación artesanal para acompañar el café.",
+      "sourceUrl": "https://www.instagram.com/p/Bvmf6D0g4Bx/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-014",
+      "slug": "postre-de-maracuya",
+      "name": "Postre de maracuyá",
+      "category": "postres",
+      "description": "Referencia incluida en la Caja Amanda.",
+      "sourceUrl": "https://www.instagram.com/p/B2aFhR5A0Ev/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-015",
+      "slug": "mini-crostata-de-mora",
+      "name": "Mini crostata de mora",
+      "category": "tartaletas",
+      "description": "Pequeña crostata de mora incluida en la Caja Amanda.",
+      "sourceUrl": "https://www.instagram.com/p/B2aFhR5A0Ev/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-016",
+      "slug": "bombones-de-chocolate",
+      "name": "Bombones de chocolate",
+      "category": "regalos",
+      "description": "Bombones de chocolate publicados en la colección de regalos.",
+      "sourceUrl": "https://www.instagram.com/p/B2aFhR5A0Ev/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    },
+    {
+      "id": "LC-017",
+      "slug": "caja-amanda",
+      "name": "Caja Amanda",
+      "category": "regalos",
+      "description": "Bombones, postre de maracuyá, galletas chocochips y mini crostata de mora.",
+      "sourceUrl": "https://www.instagram.com/p/B2aFhR5A0Ev/",
+      "price": {
+        "amount": null,
+        "currency": "COP",
+        "mode": "quote"
+      },
+      "availability": "unconfirmed",
+      "image": null,
+      "variants": [],
+      "allergens": null,
+      "personalizable": false,
+      "activeForCheckout": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "celebraciones",
+      "name": "Celebra a tu manera",
+      "description": "Tortas personalizadas e infantiles para tus momentos especiales.",
+      "ids": [
+        "LC-001",
+        "LC-002",
+        "LC-003",
+        "LC-004"
+      ]
+    },
+    {
+      "id": "regalos",
+      "name": "Detalles que enamoran",
+      "description": "Inspiraciones de Amor y Amistad y Día de la Madre; disponibilidad por confirmar.",
+      "ids": [
+        "LC-016",
+        "LC-017",
+        "LC-008",
+        "LC-009",
+        "LC-010",
+        "LC-011"
+      ]
+    },
+    {
+      "id": "antojos",
+      "name": "Un pequeño placer",
+      "description": "Clásicos de repostería para compartir.",
+      "ids": [
+        "LC-005",
+        "LC-006",
+        "LC-007",
+        "LC-012",
+        "LC-013",
+        "LC-014",
+        "LC-015"
+      ]
+    }
+  ]
+};
