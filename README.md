@@ -36,3 +36,6 @@ Reglas en [PRODUCTION-RULES.md](docs/business/PRODUCTION-RULES.md). Gift Studio 
 
 ## v0.13.1 — Base dinámica en desarrollo
 Supabase lechantilly-dev: esquema versionado de catálogo, familias productivas independientes, presentaciones, publicación transaccional y borradores privados de recetas. No se ha conectado al sitio público ni habilitado autenticación real. Ver ADR 0003 y database/tests/development_catalog_regression.sql. El frontend en código genera productos y categorías de API sin fallback histórico. Integración de desarrollo solo lectura, bloqueada en producción; datos de prueba revertidos.
+
+## v0.14.0-dev — Studio de desarrollo
+Editor guiado de catálogo, presentaciones, colecciones y familias. Práctica temporal sin almacenamiento. BFF conectado a Supabase por clave pública de Preview, acceso real bloqueado hasta onboarding seguro. Ver ADR 0004. No comercial.

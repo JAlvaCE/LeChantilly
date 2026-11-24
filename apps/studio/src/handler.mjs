@@ -45,10 +45,10 @@ export function createStudioHandler(env,fetcher=fetch){
     return send({environment:'development',database:'connected',published:rows.length===1,authEnabled:config.enabled,commerceEnabled:false});
    }
    if(req.method!=='POST')throw fail(405,'Método no admitido');
-   if(req.headers.get('origin')!==url.origin||req.headers.get('sec-fetch-site')==='cross-site')throw fail(403,'Origen no autorizado.');
+   if(req.headers.get('origin')!==url.origin||['cross-site','same-site'].includes(req.headers.get('sec-fetch-site')))throw fail(403,'Origen no autorizado.');
    if(!config.enabled)throw fail(503,'El acceso privado requiere invitación y configuración segura.');
    const d=await readBody(req);if(!plain(d)||typeof d.action!=='string')throw fail(400,'Solicitud inválida');
-   if(d.action==='send'){exact(d,['action','email']);const email=typeof d.email==='string'?d.email.trim().toLowerCase():'';if(email===config.owner){await call('/auth/v1/otp',{method:'POST',body:{email,create_user:false}})}return send({ok:true})}
+   if(d.action==='send'){exact(d,['action','email']);const email=typeof d.email==='string'?d.email.trim().toLowerCase():'';if(email===config.owner){try{await call('/auth/v1/otp',{method:'POST',body:{email,create_user:false}})}catch(e){if(e.status===429||e.status===503)throw e;}}return send({ok:true})}
    if(d.action==='verify'){exact(d,['action','email','code']);if(typeof d.email!=='string'||d.email.trim().toLowerCase()!==config.owner||typeof d.code!=='string'||!/^\d{6}$/.test(d.code))throw fail(400,'Código o correo no válido.');const r=await call('/auth/v1/verify',{method:'POST',body:{email:config.owner,token:d.code,type:'email'}});const ctx=await context(r?.access_token);return send({aal:ctx.aal,factors:factors(ctx.user)},200,sessionCookie(r.access_token,r.expires_in))}
    const token=tokenFrom(req);
    if(d.action==='logout'){exact(d,['action']);if(token){try{await call('/auth/v1/logout?scope=local',{method:'POST',token})}catch{}}return send({ok:true},200,clearCookie)}
