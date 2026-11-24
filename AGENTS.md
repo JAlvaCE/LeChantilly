@@ -32,3 +32,6 @@ Antes de modificar cualquier módulo, inventariar capacidades, rutas, datos, con
 
 ## Dominio compartido
 Editar fórmulas y contratos comunes solamente en packages/domain. Ejecutar npm run sync:domain y verificar npm run check antes de entregar. Las copias de despliegue son generadas, nunca fuentes editables independientes. Mantener compatibilidad de las fórmulas anteriores y distinguir margen por unidad redondeada de precio objetivo por pedido.
+
+## Cithadell Module Guard — P0
+No direct writes to main, no force push, no destructive migrations or module retirement without explicit authorization. Short-lived feature branches from current main; PR and independent review. Run npm run verify and guard against exact base/head SHA. Preserve all tracked paths, historical archives, existing API contracts, migrations and tests. Changes to the guard, CI, manifest, prior tests and deployment config require a separate owner-reviewed control-change process; never weaken controls to get a green check. A successful structural gate is not browser QA. Keep production unchanged until approved release. See docs/quality/MODULE-GUARD.md.

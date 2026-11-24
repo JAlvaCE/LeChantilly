@@ -1,0 +1,8 @@
+# Existing repository owner. Enforce CODEOWNERS via GitHub ruleset; file alone is advisory.
+* @JAlvaCE
+/.github/ @JAlvaCE
+/scripts/ @JAlvaCE
+/tests/ @JAlvaCE
+/database/ @JAlvaCE
+/modules.manifest.json @JAlvaCE
+/AGENTS.md @JAlvaCE

@@ -10,6 +10,29 @@ concurrency:
   group: quality-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  module-guard-bootstrap:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Compare proposed merge with trusted base
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE: ${{ github.sha }}
+        run: |
+          if git cat-file -e "$BASE:scripts/module-guard.mjs" 2>/dev/null; then
+            git show "$BASE:scripts/module-guard.mjs" > "$RUNNER_TEMP/module-guard.mjs"
+          else
+            git show "$CANDIDATE:scripts/module-guard.mjs" > "$RUNNER_TEMP/module-guard.mjs"
+          fi
+          node "$RUNNER_TEMP/module-guard.mjs" "$BASE" "$CANDIDATE"
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 10
