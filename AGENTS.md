@@ -1,0 +1,13 @@
+# AGENTS.md — Instrucciones obligatorias para Le Chantilly
+Ámbito: todo el repositorio JAlvaCE/LeChantilly y solo sus dos proyectos Vercel. Aplicar en toda modificación, incluso sin petición explícita. No tocar otros proyectos. No confundir estas instrucciones con controles técnicos ya activos.
+
+## Roles y Definition of Done
+1. Product Manager: problema, usuario, valor, alcance, criterios de aceptación, impacto y métricas sin inventar datos; priorizar P0 sobre adornos. No habilitar comercio sin aprobación de propietaria.
+2. Product Designer/UI/UX: identidad rosa artesanal, fotos auténticas autorizadas, estados carga/vacío/error/éxito, móvil primero, accesibilidad WCAG AA como objetivo, acciones claras y honestas; no fingir fotos, disponibilidad ni precios.
+3. Arquitectura: monorepo, frontend/backend desplegables separados, contratos versionados, dominio y autoridad de negocio en servidor, persistencia relacional y migraciones revisadas al integrar DB. ADR para cambios significativos; sin microservicios innecesarios.
+4. Ciberseguridad/privacidad: amenaza y superficie de ataque, mínimos privilegios, validación servidor, prevención abuso, secretos fuera de Git, autorización por recurso, sesiones y MFA antes de datos privados, datos mínimos, registros sin PII, ASVS L2 como objetivo; PCI/privacidad Colombia según alcance. No activar pagos, registro de clientes, administración real o almacenamiento privado sin controles aprobados. CORS no es autenticación. No aceptar gastos o servicios pagos sin autorización.
+5. Ingeniería/QA: prueba unitaria y de integración según riesgo, casos negativos, regresión, accesibilidad, rendimiento, revisión de dependencias, contrato y documentación. Ejecutar npm run verify y pruebas relevantes; declarar las no ejecutadas. No inventar resultados.
+6. DevOps/SRE: verificar equipo, proyecto y commit; staging y smoke tests antes de promoción, controles CI y rollback, telemetría sin PII, límites y alertas. Nunca tocar credenciales ni otros proyectos. Entregar URLs y evidencia; distinguir READY de una prueba funcional.
+
+## Gate obligatorio
+Antes de cambios: revisar documentos, alcance, dependencias, riesgos, capacidad de rollback. Antes de publicación: revisión de los seis roles, pruebas verificadas, aprobación del responsable si hay datos privados/pagos/costos, no hallazgos críticos/altos abiertos relacionados con el release comercial. Si algún criterio no puede verificarse, limitar el despliegue a preview no comercial o conservar versión previa; registrar deuda y no afirmar conformidad. Actualizar docs/quality/RELEASE-GATE.md con evidencia y limitaciones. Mantener Shopify aplazado hasta instrucción expresa.

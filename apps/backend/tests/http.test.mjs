@@ -13,3 +13,11 @@ test('malformed JSON rejected',async()=>assert.equal((await call('quote-preview'
 test('unsupported content type rejected',async()=>assert.equal((await call('quote-preview','POST','{}',{'Content-Type':'text/plain'})).status,415));
 test('oversize body rejected',async()=>assert.equal((await call('quote-preview','POST',{notes:'x'.repeat(20000)})).status,413));
 test('wrong method rejected',async()=>assert.equal((await call('quote-preview')).status,405));
+
+test('production rejects localhost',async()=>{const r=await call('catalog','GET',undefined,{Origin:'http://localhost:8000'});assert.equal(r.status,403)});
+test('request id and privacy headers',async()=>{const r=await call('health');assert.match(r.headers.get('x-request-id'),/^[a-f0-9-]{36}$/);assert.equal(r.headers.get('referrer-policy'),'no-referrer')});
+test('preflight rejects unauthorized header',async()=>assert.equal((await call('quote-preview','OPTIONS',undefined,{Origin:origin,'Access-Control-Request-Headers':'Authorization'})).status,400));
+test('unknown product query rejected',async()=>{const r=await endpoint('product').fetch(new Request('https://example.com/api/v1/product?id=red-velvet&extra=x'));assert.equal(r.status,400)});
+test('duplicate query rejected',async()=>{const r=await endpoint('product').fetch(new Request('https://example.com/api/v1/product?id=red-velvet&id=other'));assert.equal(r.status,400)});
+test('margin precision rejected',async()=>assert.equal((await call('cost-preview','POST',{ingredients:100,packaging:0,labor:0,overhead:0,units:1,margin:99.99})).status,422));
+test('quote rejects injected price',async()=>assert.equal((await call('quote-preview','POST',{productId:'LC-001',quantity:1,price:100})).status,422));

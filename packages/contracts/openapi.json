@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Le Chantilly API",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "description": "Public preview API. No orders, payments or durable writes."
   },
   "servers": [
@@ -350,7 +350,8 @@
           "margin": {
             "type": "number",
             "minimum": 0,
-            "exclusiveMaximum": 100
+            "maximum": 99.9,
+            "multipleOf": 0.1
           }
         }
       }

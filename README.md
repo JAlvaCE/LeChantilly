@@ -15,3 +15,6 @@ Migración gradual a Next.js + TypeScript / NestJS + TypeScript, PostgreSQL y Pr
 
 ## Verificación desde la raíz
 `npm run verify` ejecuta validación de sintaxis del cliente, pruebas de dominio, API/HTTP y estructura. Los tests HTTP usan Request/Response de Node sin llamadas a producción. La suite está preparada para CI; no confundir su presencia en el repositorio con una ejecución remota exitosa. La versión anterior permanece recuperable en el commit `2f6e55fabe5bdd72d2cea0fe44dce3fc5fa7ddee`.
+
+## Gobernanza obligatoria
+Consultar [AGENTS.md](AGENTS.md), [SECURITY.md](SECURITY.md) y [release gate](docs/quality/RELEASE-GATE.md) para todas las modificaciones. La versión 0.7.1 endurece API y límites; el frontend/backend siguen independientes y sin comercio habilitado.

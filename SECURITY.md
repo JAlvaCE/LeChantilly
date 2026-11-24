@@ -1,0 +1,6 @@
+# SECURITY.md
+Si detectas una vulnerabilidad, comunícala privadamente a la propietaria o responsable del repositorio; no publiques secretos ni datos de clientes en issues. No ejecutar pruebas de carga ni explotación sobre producción sin autorización y ventana acordada.
+## Respuesta
+Identificar alcance y preservar evidencia sin PII; contener mediante WAF, revocación de sesiones/credenciales o rollback; corregir y verificar en staging; recuperar y documentar; evaluar obligaciones de notificación con responsable legal. Revisar permisos y lecciones aprendidas. No existe todavía un servicio 24/7 ni SLA contractual.
+## Modelo de amenazas
+Activos: identidad propietaria futura, precios, disponibilidad, pedidos, fotos, datos de contacto y credenciales. Fronteras: navegador no confiable, API pública, futura DB privada, futuro proveedor de identidad y pagos. Riesgos: abuso de recursos, manipulación de precios, acceso a recursos ajenos, pérdida de datos, pagos falsos, archivos maliciosos y dependencias comprometidas. Controles actuales: API stateless, catálogo versionado, validación, CORS, CSP, limitación perimetral, logs mínimos. Controles futuros: MFA/RBAC, DB transaccional, idempotencia, webhooks firmados, escaneo de archivos, backups cifrados y restauración, análisis SAST/SCA/DAST, alertas y revisión periódica. Prohibido PAN/CVV y PII en logs.
