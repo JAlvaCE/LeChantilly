@@ -1,0 +1,9 @@
+{
+  "name": "@lechantilly/frontend",
+  "version": "0.7.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check app.js && node --check api-client.mjs && node --check pages-shared.mjs && node --check catalog-page.mjs && node --check product-page.mjs && node --check studio.mjs"
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Le Chantilly API",
+    "version": "0.7.0",
+    "description": "Public preview API. No orders, payments or durable writes."
+  },
+  "servers": [
+    {
+      "url": "https://lechantilly-api.vercel.app/api/v1"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "health",
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/catalog": {
+      "get": {
+        "summary": "catalog",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/product": {
+      "get": {
+        "summary": "product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/quote-preview": {
+      "post": {
+        "summary": "quote-preview",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/capacity-preview": {
+      "post": {
+        "summary": "capacity-preview",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CapacityInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/cost-preview": {
+      "post": {
+        "summary": "cost-preview",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CostInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful preview"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Origin not allowed"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QuoteInput": {
+        "type": "object",
+        "required": [
+          "productId",
+          "quantity"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "productId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "portions": {
+            "type": "integer",
+            "minimum": 6,
+            "maximum": 500
+          },
+          "budget": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000000
+          },
+          "flavor": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "filling": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "design": {
+            "type": "string",
+            "maxLength": 150
+          },
+          "packaging": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "dedication": {
+            "type": "string",
+            "maxLength": 140
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 400
+          }
+        }
+      },
+      "CapacityInput": {
+        "type": "object",
+        "required": [
+          "limit",
+          "tasks"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "tasks": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "required": [
+                "minutes"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "minutes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1440
+                }
+              }
+            }
+          }
+        }
+      },
+      "CostInput": {
+        "type": "object",
+        "required": [
+          "ingredients",
+          "packaging",
+          "labor",
+          "overhead",
+          "units",
+          "margin"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "ingredients": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000000
+          },
+          "packaging": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000000
+          },
+          "labor": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000000
+          },
+          "overhead": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000000
+          },
+          "units": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          },
+          "margin": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMaximum": 100
+          }
+        }
+      }
+    }
+  }
+}
