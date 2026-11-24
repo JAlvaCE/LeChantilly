@@ -12,7 +12,7 @@ dialog.querySelector('.close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 /* Atelier creative preview: local, no orders or personal data. */
 const counter=document.querySelector('#collection-count');
-filters.forEach(btn=>btn.addEventListener('click',()=>{const n=[...products].filter(p=>!p.hidden).length;counter.textContent=n===1?'1 inspiración':n+' inspiraciones'}));
+filters.forEach(btn=>btn.addEventListener('click',()=>{const n=[...products].filter(p=>!p.hidden).length;counter.textContent=n===1?'1 creación':n+' creaciones'}));
 const colors={rose:{label:'Rosa',fill:'#e8aebd'},vanilla:{label:'Vainilla',fill:'#f6e2b9'},lilac:{label:'Lila',fill:'#d5c3e7'},sage:{label:'Salvia',fill:'#c3d2bb'}};
 const decorLabels={floral:'Flores',bow:'Lazo',stars:'Estrellas'};
 const design={palette:'rose',tier:'one',decor:'floral'};
