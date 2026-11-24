@@ -347,16 +347,23 @@
     "storefront": {
       "projectId": "prj_sz1X3KZ94wQlh4zXOkvFQf7tcRIX",
       "production": "dpl_FHN5fTCqrwu9g9coX8hEAnoRadyp",
-      "preview": "dpl_EfYiVxd117NbhzBvNy1yYYFbubbm"
+      "preview": "dpl_EfYiVxd117NbhzBvNy1yYYFbubbm",
+      "sourceRoot": "apps/frontend"
     },
     "backend": {
       "projectId": "prj_l27tJVfgZtSxoE5BSt881gRz4zUp",
-      "production": "dpl_DeSx7ifZ2UcHVXo36rST4MQSBLZh"
+      "production": "dpl_DeSx7ifZ2UcHVXo36rST4MQSBLZh",
+      "sourceRoot": "apps/backend"
     },
     "studio": {
-      "projectId": "prj_sz1X3KZ94wQlh4zXOkvFQf7tcRIX",
-      "preview": "dpl_A6LWFMsEKymQJuiCQzku3rEDGBi9",
-      "productionAllowed": false
+      "projectId": "prj_SHZvgFMbqls5ug7xBTDbto0HpjcK",
+      "preview": "dpl_3y3U4kuNt7SRxGMyqo6Q73XNwxJD",
+      "previousPreview": "dpl_A6LWFMsEKymQJuiCQzku3rEDGBi9",
+      "previousProjectId": "prj_sz1X3KZ94wQlh4zXOkvFQf7tcRIX",
+      "productionAllowed": false,
+      "firstAutoProduction": "dpl_CSbm8mxLfSwnC2zXA7D9Xm1Nk1Ky",
+      "sourceRoot": "apps/studio"
     }
-  }
+  },
+  "teamId": "team_fAvkG0iNOiHT9lT5Inf6KTui"
 }
