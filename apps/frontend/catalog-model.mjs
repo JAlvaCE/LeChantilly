@@ -1,5 +1,5 @@
 // Shared presentation contract; legacy IDs remain supported during migration.
-export const validProductId=id=>typeof id==='string'&&(/^[Ll][Cc]-[0-9]{3,12}$/.test(id)||/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id));
+export const validProductId=id=>typeof id==='string'&&(/^LC-[0-9]{3,12}$/.test(id)||/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id));
 export function catalogModel(d){
  if(!d||![1,2].includes(d.schemaVersion)||!Array.isArray(d.categories)||!Array.isArray(d.products))throw Error('Catálogo no disponible');
  const preview=d.schemaVersion===2;
