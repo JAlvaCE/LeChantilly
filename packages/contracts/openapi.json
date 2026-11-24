@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Le Chantilly API",
-    "version": "0.8.0",
+    "version": "0.10.0",
     "description": "Public preview API. No orders, payments or durable writes."
   },
   "servers": [
@@ -278,6 +278,14 @@
                   "notes": {
                     "type": "string",
                     "maxLength": 400
+                  },
+                  "giftSize": {
+                    "type": "integer",
+                    "enum": [
+                      6,
+                      12
+                    ],
+                    "description": "Conceptual gift box; selected product quantities must sum exactly to this size."
                   }
                 }
               }
