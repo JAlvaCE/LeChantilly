@@ -1,13 +1,13 @@
 {
   "name": "lechantilly",
-  "version": "0.14.0-dev",
+  "version": "0.14.1-dev",
   "private": true,
   "engines": {
     "node": ">=22"
   },
   "scripts": {
     "test": "node --test apps/backend/tests/*.test.mjs tests/*.test.mjs",
-    "check": "npm --prefix apps/frontend run check && node --check apps/studio/model.mjs && node --check apps/studio/studio.mjs && node --check apps/studio/src/handler.mjs && node --check apps/studio/api/studio.mjs",
+    "check": "npm --prefix apps/frontend run check && node --check apps/studio/model.mjs && node --check apps/studio/studio.mjs && node --check apps/studio/src/handler.mjs && node --check apps/studio/api/studio.mjs && node --check apps/studio/legacy-tools.mjs && node --check apps/studio/legacy-calculations.mjs && node --check apps/studio/historical-catalog.mjs && node --check apps/studio/historico.mjs && node --check apps/studio/production-page.mjs && node --check apps/studio/production-engine.mjs",
     "verify": "npm run check && npm test"
   }
 }

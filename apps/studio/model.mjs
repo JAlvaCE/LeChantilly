@@ -21,7 +21,7 @@ export function sample(){
  const c='00000000-0000-4000-8000-000000000001',p='00000000-0000-4000-8000-000000000002',v='00000000-0000-4000-8000-000000000003',f='00000000-0000-4000-8000-000000000004',g='00000000-0000-4000-8000-000000000005';
  return {categories:[{id:c,name:'Postres de práctica',slug:'postres-practica',position:0,active:true}],families:[{id:f,name:'Masa de ensayo'}],products:[{id:p,name:'Tartaleta ficticia',slug:'tartaleta-ficticia',description:'Ejemplo para aprender a editar, no disponible para comprar.',active:true,custom:false,family_id:f}],productCategories:[{product_id:p,category_id:c}],variants:[{id:v,product_id:p,name:'Caja ficticia de 6',unit:'caja',min_qty:1,multiple:1,lead_hours:48,price_cop:null,active:true}],collections:[{id:g,name:'Colección de prueba',slug:'coleccion-prueba',active:true}],collectionProducts:[{collection_id:g,product_id:p}]};
 }
-export function practiceStore(){
- let revision=0,publication=0,document=sample(),published=null;const versions=new Map(),releases=[];
+export function practiceStore(initial=sample()){
+ let revision=0,publication=0,document=clone(initial),published=null;const versions=new Map(),releases=[];
  return {async read(){return clone({revision,publication,document})},async save(expected,d){if(expected!==revision)throw Error('Otro cambio ha actualizado el catálogo.');revision++;document=clone(d);versions.set(revision,clone(d));return revision},async publish(r,ep,ed){if(ep!==publication||ed!==revision||!versions.has(r)||r!==revision&&!releases.some(x=>x.revision===r))throw Error('La versión cambió. Vuelve a cargar.');const errors=validateForPublish(versions.get(r));if(errors.length)throw Error(errors[0]);published=preview(versions.get(r));publication++;releases.unshift({publication,revision:r,created_at:new Date().toISOString()});return publication},async history(){return clone(releases)},async published(){return clone(published)}};
 }

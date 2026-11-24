@@ -26,3 +26,6 @@ Categorías y referencias dinámicas; no identificadores comerciales fijos como 
 
 ## Studio de desarrollo
 `apps/studio` solo en Vercel Preview protegido, separado de la tienda pública. No activar acceso privado ni introducir datos reales sin confirmar invitación, registro cerrado, OTP/SMTP, MFA, recuperación, pruebas de permisos extremo a extremo y copias de seguridad. Ver ADR 0004. Distinguir práctica temporal de persistencia autenticada.
+
+## Preservación funcional obligatoria (P0)
+Antes de modificar cualquier módulo, inventariar capacidades, rutas, datos, contratos, archivos de exportación y recorridos de usuario; comparar con [inventario funcional](docs/quality/FUNCTIONAL-BASELINE.md). No retirar, degradar, ocultar inaccesiblemente ni sustituir funciones sin autorización explícita del usuario. Las nuevas versiones deben conservar datos y enlaces o ofrecer migración comprobada y reversión; probar funciones anteriores y nuevas. Prohibido declarar regresión aprobada sin evidencia. Si no se puede verificar paridad, no promover a producción. La propietaria tendrá un único acceso a Studio, no aplicaciones aisladas. Los prototipos y estados pendientes se identifican claramente. No confundir archivo histórico con catálogo comercial publicado.
