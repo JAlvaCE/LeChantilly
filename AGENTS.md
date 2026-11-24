@@ -1,5 +1,5 @@
 # AGENTS.md — Instrucciones obligatorias para Le Chantilly
-Ámbito: todo el repositorio JAlvaCE/LeChantilly y solo sus dos proyectos Vercel. Aplicar en toda modificación, incluso sin petición explícita. No tocar otros proyectos. No confundir estas instrucciones con controles técnicos ya activos.
+Ámbito: todo el repositorio JAlvaCE/LeChantilly y solo sus dos proyectos Vercel y el proyecto Supabase dedicado lechantilly-dev (desarrollo). Aplicar en toda modificación, incluso sin petición explícita. No tocar otros proyectos. No confundir estas instrucciones con controles técnicos ya activos.
 
 ## Roles y Definition of Done
 1. Product Manager: problema, usuario, valor, alcance, criterios de aceptación, impacto y métricas sin inventar datos; priorizar P0 sobre adornos. No habilitar comercio sin aprobación de propietaria.
@@ -20,3 +20,6 @@ Incluir analista financiero (costo integral y utilidad/hora), calidad alimentari
 
 ## Experiencia de propietaria
 Priorizar tareas cotidianas, acceso móvil, español sencillo y pasos guiados. No mostrar herramientas de desarrollo en Studio privado. Probar con la propietaria; no aprobar interfaz por estética solamente. Ver ADR 0002.
+
+## Publicación del catálogo
+Categorías y referencias dinámicas; no identificadores comerciales fijos como reglas de negocio. Borradores inmutables, publicación atómica, autorización por negocio y MFA, control de concurrencia. Ver ADR 0003 y regression SQL. No conectar entorno de desarrollo a producción ni admitir datos reales hasta completar gates.

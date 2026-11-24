@@ -33,3 +33,6 @@ Reglas en [PRODUCTION-RULES.md](docs/business/PRODUCTION-RULES.md). Gift Studio 
 
 ## v0.13 — Preparación de Mi negocio
 /mi-negocio.html es una práctica pública sin datos reales. Migración SQL propuesta en database/migrations, no aplicada. Ver docs/adr/0002-owner-first-studio.md. Autenticación, DB y hosting comercial pendientes de autorización y pruebas.
+
+## v0.13.1 — Base dinámica en desarrollo
+Supabase lechantilly-dev: esquema versionado de catálogo, familias productivas independientes, presentaciones, publicación transaccional y borradores privados de recetas. No se ha conectado al sitio público ni habilitado autenticación real. Ver ADR 0003 y database/tests/development_catalog_regression.sql. El frontend en código genera productos y categorías de API sin fallback histórico. Integración de desarrollo solo lectura, bloqueada en producción; datos de prueba revertidos.
