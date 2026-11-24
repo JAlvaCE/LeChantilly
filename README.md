@@ -21,3 +21,6 @@ Consultar [AGENTS.md](AGENTS.md), [SECURITY.md](SECURITY.md) y [release gate](do
 
 ## v0.8 Customer Journey
 Inicio por intención, /personaliza.html (wizard de cuatro pasos y boceto), /bolsa.html (consulta conjunta), /contacto.html. API POST /api/v1/basket-preview. No pedidos, pagos ni reservas. Preferencias e IDs/cantidades de sesión; fotos solo locales. Consulte el release gate para evidencias y limitaciones.
+
+## v0.10 — Atelier Collection y Gift Studio
+/personaliza.html: cuatro conceptos seleccionables y guía orientativa de porciones. /regalos.html: caja de 6/12 piezas con opciones históricas del catálogo; API valida la suma y los productos. Fichas con complementos sugeridos. No implica disponibilidad, precio, pedido ni pago. Consultar release gate.
