@@ -339,5 +339,45 @@
       "personalizable": false,
       "activeForCheckout": false
     }
+  ],
+  "collections": [
+    {
+      "id": "celebraciones",
+      "name": "Celebra a tu manera",
+      "description": "Tortas personalizadas e infantiles para tus momentos especiales.",
+      "ids": [
+        "LC-001",
+        "LC-002",
+        "LC-003",
+        "LC-004"
+      ]
+    },
+    {
+      "id": "regalos",
+      "name": "Detalles que enamoran",
+      "description": "Inspiraciones de Amor y Amistad y Día de la Madre; disponibilidad por confirmar.",
+      "ids": [
+        "LC-016",
+        "LC-017",
+        "LC-008",
+        "LC-009",
+        "LC-010",
+        "LC-011"
+      ]
+    },
+    {
+      "id": "antojos",
+      "name": "Un pequeño placer",
+      "description": "Clásicos de repostería para compartir.",
+      "ids": [
+        "LC-005",
+        "LC-006",
+        "LC-007",
+        "LC-012",
+        "LC-013",
+        "LC-014",
+        "LC-015"
+      ]
+    }
   ]
 }
