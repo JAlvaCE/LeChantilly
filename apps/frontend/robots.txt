@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Non-commercial development only. No public sitemap until approved launch.

@@ -2,7 +2,7 @@
 import {catalogModel} from './catalog-model.mjs';
 export const API_BASE='https://lechantilly-api.vercel.app/api/v1';
 export async function request(resource,{method='GET',query={},body}={}){
- const url=new URL(API_BASE+'/'+resource);for(const [k,v] of Object.entries(query))if(v!==undefined&&v!==null)url.searchParams.set(k,String(v));
+ const preview=typeof location!=='undefined'&&location.hostname.endsWith('-jalvaces-projects.vercel.app');const url=preview?new URL('/api/preview',location.origin):new URL(API_BASE+'/'+resource);if(preview)url.searchParams.set('resource',resource);for(const [k,v] of Object.entries(query))if(v!==undefined&&v!==null)url.searchParams.set(k,String(v));
  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),12000);
  try{const options={method,signal:controller.signal,credentials:'omit',cache:'no-store',headers:{Accept:'application/json'}};if(body!==undefined){options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}
  const response=await fetch(url,options);let data;try{data=await response.json()}catch{throw Error('El servicio no devolvió una respuesta válida. Inténtalo nuevamente.')}
