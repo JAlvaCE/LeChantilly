@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Le Chantilly API",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "description": "Public preview API. No orders, payments or durable writes."
   },
   "servers": [
@@ -285,7 +285,7 @@
                       6,
                       12
                     ],
-                    "description": "Conceptual gift box; selected product quantities must sum exactly to this size."
+                    "description": "Provisional inquiry: same product family, blocks of 6, at most 2 varieties for 12 pieces, exact total. Production, packaging and pricing require manual approval."
                   }
                 }
               }

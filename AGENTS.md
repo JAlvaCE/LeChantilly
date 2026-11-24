@@ -11,3 +11,6 @@
 
 ## Gate obligatorio
 Antes de cambios: revisar documentos, alcance, dependencias, riesgos, capacidad de rollback. Antes de publicación: revisión de los seis roles, pruebas verificadas, aprobación del responsable si hay datos privados/pagos/costos, no hallazgos críticos/altos abiertos relacionados con el release comercial. Si algún criterio no puede verificarse, limitar el despliegue a preview no comercial o conservar versión previa; registrar deuda y no afirmar conformidad. Actualizar docs/quality/RELEASE-GATE.md con evidencia y limitaciones. Mantener Shopify aplazado hasta instrucción expresa.
+
+## Regla obligatoria de viabilidad de negocio
+Antes de implementar cambios comerciales revisar [reglas de producción](docs/business/PRODUCTION-RULES.md). La revisión de producto incluye el rol de responsable de operaciones/producción: recetas, lotes, formatos, capacidad, conservación, alérgenos, costo total, mermas y margen. La validación técnica no equivale a factibilidad. Datos operativos desconocidos bloquean aprobación automática; no inventar reglas comerciales ni presentar propuestas como confirmadas.
