@@ -24,3 +24,6 @@ Inicio por intención, /personaliza.html (wizard de cuatro pasos y boceto), /bol
 
 ## v0.10 — Atelier Collection y Gift Studio
 /personaliza.html: cuatro conceptos seleccionables y guía orientativa de porciones. /regalos.html: caja de 6/12 piezas con opciones históricas del catálogo; API valida la suma y los productos. Fichas con complementos sugeridos. No implica disponibilidad, precio, pedido ni pago. Consultar release gate.
+
+## v0.10.1 — Viabilidad operativa
+Reglas en [PRODUCTION-RULES.md](docs/business/PRODUCTION-RULES.md). Gift Studio limita composiciones a bloques provisionales de 6 por variedad de una familia. Toda consulta requiere revisión manual. No son mínimos comerciales aprobados. AGENTS.md exige revisión de operaciones antes de nuevas funciones comerciales.
