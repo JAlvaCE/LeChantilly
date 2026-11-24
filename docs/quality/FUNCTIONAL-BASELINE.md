@@ -13,3 +13,6 @@ Baseline: tienda pública v0.13, backend v0.10.1, Studio preview v0.14.0-dev. Co
 | API pública: health/catalog/product/quote-preview/basket-preview/capacity-preview/cost-preview | backend anterior | Sin cambios en este release |
 ## Gate de regresión
 Comparar catálogo histórico completo, identificadores, slugs, fuentes, relaciones y reglas; probar fórmulas, los cuatro escenarios y navegación; conservar exportaciones. Las funciones con datos reales solo pueden habilitarse tras identidad, MFA, RLS, copias y pruebas E2E. Verificar rutas antiguas y preview, documentar pruebas no ejecutadas. No promover si no hay evidencia. En futuras migraciones conservar metadatos y enlaces; no inventar variantes ni activar productos sin aprobación.
+
+## v0.15.0-dev
+Fuente canónica de dominio y copias generadas comprobadas por npm run check. Nueva página /galletas.html y filtro /catalogo.html?categoria=galletas, no eliminar rutas previas. Guardado de borrador vacío permitido, publicación vacía bloqueada en interfaz y PostgreSQL. Bolsa conserva límite explícito y no trunca adiciones silenciosamente. Ver INTERVENTION-STATUS.md.

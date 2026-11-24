@@ -42,3 +42,6 @@ Editor guiado de catálogo, presentaciones, colecciones y familias. Práctica te
 
 ## v0.14.1-dev — Studio consolidado
 Una entrada para catálogo dinámico, presupuestos, agenda, simulación productiva y referencias históricas. Archivo de migración privado y 17 referencias preservadas. Ver docs/quality/FUNCTIONAL-BASELINE.md. Solo Preview protegido; no datos reales ni comercio.
+
+## v0.15.0-dev — Intervención
+Motores canónicos en packages/domain, protección de publicación, galletas visibles y SEO de desarrollo. Dos previews no comerciales. Ver [estado de intervención](docs/quality/INTERVENTION-STATUS.md). Las tareas de activación real y CI siguen abiertas.
