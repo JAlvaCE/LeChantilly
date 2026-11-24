@@ -20,3 +20,6 @@ Identidad original SVG, boceto vectorial de torta configurable en 24 combinacion
 - Definir fotos propias, productos, precios COP, variantes, alérgenos, cobertura y políticas.
 - Habilitar hosting comercial; probar checkout de prueba y confirmación de pedidos, luego activar pagos reales.
 - Conectar GitHub al proyecto Vercel existente; evitar duplicados. No activar robots hasta confirmar catálogo y políticas.
+
+## v0.4 — Catálogo basado en Instagram
+17 referencias documentadas con enlaces a las publicaciones originales. Las ilustraciones son decorativas y no representan fotografías de producto. No se utilizan enlaces CDN temporales de Instagram; se requieren archivos originales aprobados para el lanzamiento. No se confirma disponibilidad actual ni se inventan precios.
