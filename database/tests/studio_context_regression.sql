@@ -1,0 +1,25 @@
+begin;
+insert into auth.users(id,email) values('aaaa0000-0000-4000-8000-000000000041','lc-context-owner@example.invalid'),('aaaa0000-0000-4000-8000-000000000042','lc-context-other@example.invalid');
+insert into lc_private.membership(business_id,user_id,role,active) select id,'aaaa0000-0000-4000-8000-000000000041','owner',true from lc_private.business where name='Le Chantilly — desarrollo';
+select set_config('lc.test_business',(select id::text from lc_private.business where name='Le Chantilly — desarrollo'),true);
+set local role authenticated;
+do $$ declare b uuid:=current_setting('lc.test_business')::uuid; n int:=0; begin
+ perform set_config('request.jwt.claims','{"sub":"aaaa0000-0000-4000-8000-000000000041","role":"authenticated","aal":"aal1"}',true);
+ if public.lc_owner_context(b)<> '{"owner":true,"aal":"aal1"}'::jsonb then raise exception 'FAIL context';end if;n:=n+1;
+ begin perform public.lc_catalog_history(b);raise exception 'FAIL AAL1 history';exception when insufficient_privilege then n:=n+1;end;
+ begin perform public.lc_read_catalog(b);raise exception 'FAIL AAL1 read';exception when insufficient_privilege then n:=n+1;end;
+ perform set_config('request.jwt.claims','{"sub":"aaaa0000-0000-4000-8000-000000000042","role":"authenticated","aal":"aal2"}',true);
+ begin perform public.lc_owner_context(b);raise exception 'FAIL outsider';exception when insufficient_privilege then n:=n+1;end;
+ begin perform public.lc_catalog_history(b);raise exception 'FAIL outsider history';exception when insufficient_privilege then n:=n+1;end;
+ perform set_config('request.jwt.claims','{"sub":"aaaa0000-0000-4000-8000-000000000041","role":"authenticated","aal":"aal2"}',true);
+ if public.lc_owner_context(b)->>'aal'<>'aal2' then raise exception 'FAIL AAL2';end if;n:=n+1;
+ if public.lc_catalog_history(b)<>'[]'::jsonb then raise exception 'FAIL empty history';end if;n:=n+1;
+ if public.lc_save_catalog(b,0,'{"categories":[],"families":[],"products":[],"productCategories":[],"variants":[],"collections":[],"collectionProducts":[]}'::jsonb)<>1 then raise exception 'FAIL draft';end if;n:=n+1;
+ if public.lc_publish_catalog(b,1,0,1)<>1 then raise exception 'FAIL publish';end if;n:=n+1;
+ if jsonb_array_length(public.lc_catalog_history(b))<>1 or public.lc_catalog_history(b)#>>'{0,revision}'<>'1' then raise exception 'FAIL history';end if;n:=n+1;
+ if has_function_privilege('anon','public.lc_owner_context(uuid)','EXECUTE') or has_function_privilege('anon','public.lc_catalog_history(uuid)','EXECUTE') then raise exception 'FAIL anon grants';end if;n:=n+1;
+ perform set_config('lc.test_passed',n::text,true);
+end $$;
+reset role;
+select current_setting('lc.test_passed')::int passed;
+rollback;
