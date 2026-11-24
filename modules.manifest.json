@@ -1,0 +1,369 @@
+{
+  "version": 1,
+  "project": "JAlvaCE/LeChantilly",
+  "baselineCommit": "54ac526dbef20a8cdc20d0fcb0e54edf00b83766",
+  "modules": [
+    {
+      "id": "LC-01",
+      "name": "Tienda y navegación",
+      "paths": [
+        "apps/frontend/index.html",
+        "apps/frontend/app.js",
+        "apps/frontend/journey-nav.mjs",
+        "apps/frontend/styles.css",
+        "apps/frontend/pages.css",
+        "apps/frontend/contacto.html"
+      ]
+    },
+    {
+      "id": "LC-02",
+      "name": "Catálogo y galletas",
+      "paths": [
+        "apps/frontend/catalogo.html",
+        "apps/frontend/catalog-page.mjs",
+        "apps/frontend/catalog-model.mjs",
+        "apps/frontend/catalog-render.mjs",
+        "apps/frontend/galletas.html",
+        "apps/frontend/producto.html",
+        "apps/frontend/product-page.mjs",
+        "apps/backend/src/catalog-data.mjs",
+        "apps/backend/api/v1/catalog.mjs",
+        "apps/backend/api/v1/product.mjs"
+      ]
+    },
+    {
+      "id": "LC-03",
+      "name": "Atelier",
+      "paths": [
+        "apps/frontend/personaliza.html",
+        "apps/frontend/wizard.mjs",
+        "apps/frontend/atelier-presets.mjs",
+        "apps/backend/api/v1/quote-preview.mjs"
+      ]
+    },
+    {
+      "id": "LC-04",
+      "name": "Gift Studio y bolsa",
+      "paths": [
+        "apps/frontend/regalos.html",
+        "apps/frontend/gift.mjs",
+        "apps/frontend/bolsa.html",
+        "apps/frontend/bag-page.mjs",
+        "apps/frontend/bag-store.mjs",
+        "apps/backend/src/production-policy.mjs",
+        "apps/backend/api/v1/basket-preview.mjs"
+      ]
+    },
+    {
+      "id": "LC-05",
+      "name": "Presupuestos y agenda",
+      "paths": [
+        "apps/frontend/studio.html",
+        "apps/frontend/studio.mjs",
+        "apps/studio/herramientas.html",
+        "apps/studio/legacy-tools.mjs",
+        "apps/studio/legacy-calculations.mjs",
+        "apps/backend/api/v1/cost-preview.mjs",
+        "apps/backend/api/v1/capacity-preview.mjs",
+        "packages/domain/calculations.mjs"
+      ]
+    },
+    {
+      "id": "LC-06",
+      "name": "Producción y rentabilidad",
+      "paths": [
+        "apps/frontend/produccion.html",
+        "apps/frontend/production-page.mjs",
+        "apps/frontend/production-engine.mjs",
+        "apps/studio/produccion.html",
+        "apps/studio/production-page.mjs",
+        "apps/studio/production-engine.mjs",
+        "packages/domain/production-engine.mjs"
+      ]
+    },
+    {
+      "id": "LC-07",
+      "name": "Studio y catálogo editable",
+      "paths": [
+        "apps/studio/index.html",
+        "apps/studio/studio.mjs",
+        "apps/studio/model.mjs",
+        "apps/studio/studio.css",
+        "apps/studio/historico.html",
+        "apps/studio/historico.mjs",
+        "apps/studio/historical-catalog.mjs",
+        "apps/frontend/mi-negocio.html",
+        "apps/frontend/owner.mjs",
+        "apps/frontend/owner-workflow.mjs"
+      ]
+    },
+    {
+      "id": "LC-08",
+      "name": "API, seguridad y sesión",
+      "paths": [
+        "apps/backend/src/http.mjs",
+        "apps/backend/src/service.mjs",
+        "apps/backend/src/development-catalog.mjs",
+        "apps/backend/api/v1/health.mjs",
+        "apps/studio/src/handler.mjs",
+        "apps/studio/api/studio.mjs",
+        "apps/frontend/api-client.mjs",
+        "apps/frontend/api/preview.mjs",
+        "packages/contracts/openapi.json"
+      ]
+    },
+    {
+      "id": "LC-09",
+      "name": "Persistencia y recetas versionadas",
+      "paths": [
+        "database/migrations/001_owner_recipe_drafts.sql",
+        "database/migrations/002_development_catalog_foundation.sql",
+        "database/migrations/003_catalog_executor_least_privilege.sql",
+        "database/migrations/004_executor_session_identity.sql",
+        "database/migrations/005_recipe_versions_and_strict_catalog_types.sql",
+        "database/migrations/006_owner_context_and_catalog_history.sql",
+        "database/migrations/007_historical_catalog_import_archive.sql",
+        "database/migrations/008_nonempty_catalog_release.sql"
+      ]
+    },
+    {
+      "id": "LC-10",
+      "name": "SEO y privacidad",
+      "paths": [
+        "apps/frontend/robots.txt",
+        "apps/frontend/privacidad.html",
+        "apps/frontend/galletas.html",
+        "docs/quality/SEO-RELEASE-GATE.md"
+      ]
+    },
+    {
+      "id": "LC-11",
+      "name": "Dominio y controles",
+      "paths": [
+        "packages/domain/ui-contract.mjs",
+        "scripts/sync-domain.mjs",
+        "scripts/security-check.mjs",
+        "package.json",
+        ".github/workflows/quality.yml",
+        "AGENTS.md",
+        "docs/quality/FUNCTIONAL-BASELINE.md"
+      ]
+    }
+  ],
+  "requiredFiles": [
+    ".github/workflows/quality.yml",
+    "AGENTS.md",
+    "README.md",
+    "SECURITY.md",
+    "UX-AUDIT.md",
+    "apps/backend/api/v1/basket-preview.mjs",
+    "apps/backend/api/v1/capacity-preview.mjs",
+    "apps/backend/api/v1/catalog.mjs",
+    "apps/backend/api/v1/cost-preview.mjs",
+    "apps/backend/api/v1/health.mjs",
+    "apps/backend/api/v1/product.mjs",
+    "apps/backend/api/v1/quote-preview.mjs",
+    "apps/backend/package.json",
+    "apps/backend/public/index.html",
+    "apps/backend/src/calculations.mjs",
+    "apps/backend/src/catalog-data.mjs",
+    "apps/backend/src/development-catalog.mjs",
+    "apps/backend/src/domain.mjs",
+    "apps/backend/src/http.mjs",
+    "apps/backend/src/production-policy.mjs",
+    "apps/backend/src/service.mjs",
+    "apps/backend/tests/api.test.mjs",
+    "apps/backend/tests/basket.test.mjs",
+    "apps/backend/tests/domain.test.mjs",
+    "apps/backend/tests/gift.test.mjs",
+    "apps/backend/tests/http.test.mjs",
+    "apps/backend/vercel.json",
+    "apps/frontend/api-client.mjs",
+    "apps/frontend/api/preview.mjs",
+    "apps/frontend/app.js",
+    "apps/frontend/atelier-presets.mjs",
+    "apps/frontend/bag-page.mjs",
+    "apps/frontend/bag-store.mjs",
+    "apps/frontend/bolsa.html",
+    "apps/frontend/catalog-model.mjs",
+    "apps/frontend/catalog-page.mjs",
+    "apps/frontend/catalog-render.mjs",
+    "apps/frontend/catalogo.html",
+    "apps/frontend/contacto.html",
+    "apps/frontend/galletas.html",
+    "apps/frontend/gift.mjs",
+    "apps/frontend/index.html",
+    "apps/frontend/journey-nav.mjs",
+    "apps/frontend/mark.svg",
+    "apps/frontend/mi-negocio.html",
+    "apps/frontend/owner-workflow.mjs",
+    "apps/frontend/owner.css",
+    "apps/frontend/owner.mjs",
+    "apps/frontend/package.json",
+    "apps/frontend/pages-shared.mjs",
+    "apps/frontend/pages.css",
+    "apps/frontend/personaliza.html",
+    "apps/frontend/privacidad.html",
+    "apps/frontend/produccion.html",
+    "apps/frontend/product-page.mjs",
+    "apps/frontend/production-engine.mjs",
+    "apps/frontend/production-page.mjs",
+    "apps/frontend/producto.html",
+    "apps/frontend/regalos.html",
+    "apps/frontend/robots.txt",
+    "apps/frontend/studio.html",
+    "apps/frontend/studio.mjs",
+    "apps/frontend/styles.css",
+    "apps/frontend/ui-contract.mjs",
+    "apps/frontend/vercel.json",
+    "apps/frontend/wizard.mjs",
+    "apps/studio/api/studio.mjs",
+    "apps/studio/herramientas.html",
+    "apps/studio/historical-catalog.mjs",
+    "apps/studio/historico.html",
+    "apps/studio/historico.mjs",
+    "apps/studio/index.html",
+    "apps/studio/legacy-calculations.mjs",
+    "apps/studio/legacy-styles.css",
+    "apps/studio/legacy-tools.mjs",
+    "apps/studio/model.mjs",
+    "apps/studio/package.json",
+    "apps/studio/pages.css",
+    "apps/studio/produccion.html",
+    "apps/studio/production-engine.mjs",
+    "apps/studio/production-page.mjs",
+    "apps/studio/src/handler.mjs",
+    "apps/studio/studio.css",
+    "apps/studio/studio.mjs",
+    "apps/studio/tools-nav.css",
+    "apps/studio/ui-contract.mjs",
+    "apps/studio/vercel.json",
+    "database/migrations/001_owner_recipe_drafts.sql",
+    "database/migrations/002_development_catalog_foundation.sql",
+    "database/migrations/003_catalog_executor_least_privilege.sql",
+    "database/migrations/004_executor_session_identity.sql",
+    "database/migrations/005_recipe_versions_and_strict_catalog_types.sql",
+    "database/migrations/006_owner_context_and_catalog_history.sql",
+    "database/migrations/007_historical_catalog_import_archive.sql",
+    "database/migrations/008_nonempty_catalog_release.sql",
+    "database/tests/development_catalog_regression.sql",
+    "database/tests/empty_publication_regression.sql",
+    "database/tests/historical_import_regression.sql",
+    "database/tests/studio_context_regression.sql",
+    "docs/adr/0001-independent-apps.md",
+    "docs/adr/0002-owner-first-studio.md",
+    "docs/adr/0003-versioned-catalog.md",
+    "docs/adr/0004-studio-development.md",
+    "docs/business/OPERATING-MODEL.md",
+    "docs/business/PRODUCTION-RULES.md",
+    "docs/history/v0.6-architecture.md",
+    "docs/quality/FUNCTIONAL-BASELINE.md",
+    "docs/quality/INTERVENTION-STATUS.md",
+    "docs/quality/RELEASE-GATE.md",
+    "docs/quality/SEO-RELEASE-GATE.md",
+    "package.json",
+    "packages/contracts/openapi.json",
+    "packages/domain/calculations.mjs",
+    "packages/domain/production-engine.mjs",
+    "packages/domain/ui-contract.mjs",
+    "scripts/security-check.mjs",
+    "scripts/sync-domain.mjs",
+    "tests/bag.test.mjs",
+    "tests/domain-parity.test.mjs",
+    "tests/dynamic-catalog.test.mjs",
+    "tests/intervention-regression.test.mjs",
+    "tests/owner.test.mjs",
+    "tests/production.test.mjs",
+    "tests/storefront-preview.test.mjs",
+    "tests/structure.test.mjs",
+    "tests/studio-handler.test.mjs",
+    "tests/studio-model.test.mjs",
+    "tests/studio-preservation.test.mjs"
+  ],
+  "markers": {
+    "apps/frontend/galletas.html": [
+      "Galletas chocochips",
+      "Galletas de chocolate y zucchini"
+    ],
+    "apps/frontend/index.html": [
+      "/galletas.html",
+      "/catalogo.html"
+    ],
+    "apps/studio/index.html": [
+      "/herramientas.html#costos",
+      "/herramientas.html#agenda",
+      "/produccion.html",
+      "/historico.html",
+      "historical-practice"
+    ],
+    "apps/studio/herramientas.html": [
+      "id=\"cost-form\"",
+      "id=\"plan-form\"",
+      "id=\"export-plan\"",
+      "id=\"export-catalog\"",
+      "id=\"edit-allergens\""
+    ],
+    "apps/frontend/produccion.html": [
+      "data-scenario=\"single\"",
+      "data-scenario=\"mixed\"",
+      "data-scenario=\"cake\"",
+      "data-scenario=\"cookies\""
+    ],
+    "apps/studio/produccion.html": [
+      "data-scenario=\"single\"",
+      "data-scenario=\"mixed\"",
+      "data-scenario=\"cake\"",
+      "data-scenario=\"cookies\""
+    ],
+    "apps/studio/src/handler.mjs": [
+      "HttpOnly",
+      "SameSite=Strict",
+      "lc_owner_context",
+      "lc_publish_catalog"
+    ],
+    "apps/frontend/bag-store.mjs": [
+      "addToBag",
+      "sanitizeBag",
+      "MAX_BAG_REFERENCES"
+    ],
+    "apps/studio/model.mjs": [
+      "validateForPublish",
+      "practiceStore",
+      "published"
+    ],
+    "packages/domain/calculations.mjs": [
+      "capacityPlan",
+      "costPlan"
+    ],
+    "packages/domain/production-engine.mjs": [
+      "planProduction"
+    ]
+  },
+  "immutableArchives": [
+    "apps/backend/src/catalog-data.mjs",
+    "apps/studio/historical-catalog.mjs"
+  ],
+  "releaseTargets": {
+    "storefront": {
+      "projectId": "prj_sz1X3KZ94wQlh4zXOkvFQf7tcRIX",
+      "production": "dpl_FHN5fTCqrwu9g9coX8hEAnoRadyp",
+      "preview": "dpl_EfYiVxd117NbhzBvNy1yYYFbubbm",
+      "sourceRoot": "apps/frontend"
+    },
+    "backend": {
+      "projectId": "prj_l27tJVfgZtSxoE5BSt881gRz4zUp",
+      "production": "dpl_DeSx7ifZ2UcHVXo36rST4MQSBLZh",
+      "sourceRoot": "apps/backend"
+    },
+    "studio": {
+      "projectId": "prj_SHZvgFMbqls5ug7xBTDbto0HpjcK",
+      "preview": "dpl_3y3U4kuNt7SRxGMyqo6Q73XNwxJD",
+      "previousPreview": "dpl_A6LWFMsEKymQJuiCQzku3rEDGBi9",
+      "previousProjectId": "prj_sz1X3KZ94wQlh4zXOkvFQf7tcRIX",
+      "productionAllowed": false,
+      "firstAutoProduction": "dpl_CSbm8mxLfSwnC2zXA7D9Xm1Nk1Ky",
+      "sourceRoot": "apps/studio"
+    }
+  },
+  "teamId": "team_fAvkG0iNOiHT9lT5Inf6KTui"
+}
