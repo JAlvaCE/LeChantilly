@@ -5,7 +5,7 @@ export async function request(resource,{method='GET',query={},body}={}){
  const url=new URL(API_BASE+'/'+resource);for(const [k,v] of Object.entries(query))if(v!==undefined&&v!==null)url.searchParams.set(k,String(v));
  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),12000);
  try{const options={method,signal:controller.signal,credentials:'omit',cache:'no-store',headers:{Accept:'application/json'}};if(body!==undefined){options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}
- const response=await fetch(url,options);if(response.status===429)throw Error('Hay muchas solicitudes. Espera un momento antes de volver a intentarlo.');let data;try{data=await response.json()}catch{throw Error('El servicio no devolvió una respuesta válida. Inténtalo nuevamente.')}
+ const response=await fetch(url,options);let data;try{data=await response.json()}catch{throw Error('El servicio no devolvió una respuesta válida. Inténtalo nuevamente.')}
  if(response.status===429)throw Error('Hay muchas solicitudes. Espera un momento antes de volver a intentarlo.');
  if(!response.ok)throw Error(typeof data?.error?.message==='string'?data.error.message:'No se pudo completar la consulta.');
  return data;

@@ -5,6 +5,7 @@ export const slugify=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowe
 export function validateForPublish(d){
  const errors=[];
  if(!d||Object.keys(emptyDocument()).some(k=>!Array.isArray(d[k])))return ['El catálogo tiene una estructura inválida.'];
+ if(!d.products.some(p=>p.active))errors.push('Activa al menos un producto con una categoría y presentación válidas antes de publicar.');
  for(const p of d.products.filter(x=>x.active)){
  if(!d.productCategories.some(pc=>pc.product_id===p.id&&d.categories.some(c=>c.id===pc.category_id&&c.active)))errors.push(p.name+': necesita una categoría visible.');
  if(!d.variants.some(v=>v.product_id===p.id&&v.active))errors.push(p.name+': necesita una presentación visible.');
