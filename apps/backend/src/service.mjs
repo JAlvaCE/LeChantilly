@@ -37,7 +37,7 @@ export function dispatch(resource,method,body={},query={},today=todayCO()){
    const gift=Object.hasOwn(body,'giftSize');if(gift&&![6,12].includes(body.giftSize))throw Error('Capacidad de caja inválida');
    const seen=new Set(),lines=[gift?'Hola, Le Chantilly. Quisiera consultar una caja personalizada de '+body.giftSize+' unidades (propuesta por confirmar).':'Hola, Le Chantilly. Quisiera consultar precio y disponibilidad de:'];let total=0;
    for(const item of body.items){
-    if(!known(item,['productId','quantity'])||typeof item.productId!=='string'||!/^LC-\d{3}$/.test(item.productId)||!Number.isSafeInteger(item.quantity)||item.quantity<1||item.quantity>99||seen.has(item.productId))throw Error('Referencia, cantidad o duplicado inválido');
+    if(!known(item,['productId','quantity'])||typeof item.productId!=='string'||!/^LC-\d{3,12}$/.test(item.productId)||!Number.isSafeInteger(item.quantity)||item.quantity<1||item.quantity>99||seen.has(item.productId))throw Error('Referencia, cantidad o duplicado inválido');
     seen.add(item.productId);total+=item.quantity;const p=catalog.products.find(p=>p.id===item.productId);
     if(!p)return err(404,'PRODUCT_NOT_FOUND','Referencia no encontrada');
     if(p.personalizable)return err(422,'CUSTOM_REQUIRED','Las tortas personalizadas tienen su propio configurador');
