@@ -29,3 +29,6 @@ Categorías y referencias dinámicas; no identificadores comerciales fijos como 
 
 ## Preservación funcional obligatoria (P0)
 Antes de modificar cualquier módulo, inventariar capacidades, rutas, datos, contratos, archivos de exportación y recorridos de usuario; comparar con [inventario funcional](docs/quality/FUNCTIONAL-BASELINE.md). No retirar, degradar, ocultar inaccesiblemente ni sustituir funciones sin autorización explícita del usuario. Las nuevas versiones deben conservar datos y enlaces o ofrecer migración comprobada y reversión; probar funciones anteriores y nuevas. Prohibido declarar regresión aprobada sin evidencia. Si no se puede verificar paridad, no promover a producción. La propietaria tendrá un único acceso a Studio, no aplicaciones aisladas. Los prototipos y estados pendientes se identifican claramente. No confundir archivo histórico con catálogo comercial publicado.
+
+## Dominio compartido
+Editar fórmulas y contratos comunes solamente en packages/domain. Ejecutar npm run sync:domain y verificar npm run check antes de entregar. Las copias de despliegue son generadas, nunca fuentes editables independientes. Mantener compatibilidad de las fórmulas anteriores y distinguir margen por unidad redondeada de precio objetivo por pedido.
