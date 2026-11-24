@@ -18,3 +18,6 @@ Migración gradual a Next.js + TypeScript / NestJS + TypeScript, PostgreSQL y Pr
 
 ## Gobernanza obligatoria
 Consultar [AGENTS.md](AGENTS.md), [SECURITY.md](SECURITY.md) y [release gate](docs/quality/RELEASE-GATE.md) para todas las modificaciones. La versión 0.7.1 endurece API y límites; el frontend/backend siguen independientes y sin comercio habilitado.
+
+## v0.8 Customer Journey
+Inicio por intención, /personaliza.html (wizard de cuatro pasos y boceto), /bolsa.html (consulta conjunta), /contacto.html. API POST /api/v1/basket-preview. No pedidos, pagos ni reservas. Preferencias e IDs/cantidades de sesión; fotos solo locales. Consulte el release gate para evidencias y limitaciones.
