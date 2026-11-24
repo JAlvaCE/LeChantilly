@@ -1,0 +1,64 @@
+-- Run ONLY in isolated development. Every fixture is rolled back.
+begin;
+insert into auth.users(id,email) values('aaaa0000-0000-4000-8000-000000000031','lc-regression-owner@example.invalid'),('aaaa0000-0000-4000-8000-000000000032','lc-regression-other@example.invalid');
+insert into lc_private.membership(business_id,user_id,role,active) select id,'aaaa0000-0000-4000-8000-000000000031','owner',true from lc_private.business where name='Le Chantilly — desarrollo';
+select set_config('lc.test_business',(select id::text from lc_private.business where name='Le Chantilly — desarrollo'),true);
+set local role authenticated;
+do $test$
+declare b uuid:=current_setting('lc.test_business')::uuid; u uuid:='aaaa0000-0000-4000-8000-000000000031'; v uuid:='aaaa0000-0000-4000-8000-000000000032'; c uuid:='bbbb0000-0000-4000-8000-000000000031'; p uuid:='cccc0000-0000-4000-8000-000000000031'; z uuid:='dddd0000-0000-4000-8000-000000000031'; recipe uuid:='eeee0000-0000-4000-8000-000000000031'; d jsonb; d2 jsonb; snap jsonb; rd jsonb; n int:=0;
+begin
+ d:=jsonb_build_object('categories',jsonb_build_array(jsonb_build_object('id',c,'name','Categoría de prueba','slug','prueba','position',0,'active',true)),'families','[]'::jsonb,'products',jsonb_build_array(jsonb_build_object('id',p,'name','Producto ficticio','slug','producto-ficticio','description','Solo ensayo','active',true,'custom',false,'family_id',null)),'productCategories',jsonb_build_array(jsonb_build_object('product_id',p,'category_id',c)),'variants',jsonb_build_array(jsonb_build_object('id',z,'product_id',p,'name','Caja','unit','caja','min_qty',2,'multiple',2,'lead_hours',48,'price_cop',123456,'active',true)),'collections','[]'::jsonb,'collectionProducts','[]'::jsonb);
+ rd:='{"title":"Receta ficticia","unit":"pieza","gross_yield":6,"waste_units":1,"ingredient_cost_cop":123456,"active_minutes":25,"status":"draft"}';
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u,'role','authenticated','aal','aal1')::text,true);
+ begin perform public.lc_save_catalog(b,0,d);raise exception 'FAIL AAL1';exception when insufficient_privilege then n:=n+1;end;
+ begin perform public.lc_save_recipe(b,recipe,0,rd);raise exception 'FAIL recipe AAL1';exception when insufficient_privilege then n:=n+1;end;
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',v,'role','authenticated','aal','aal2')::text,true);
+ begin perform public.lc_read_catalog(b);raise exception 'FAIL outsider';exception when insufficient_privilege then n:=n+1;end;
+ begin perform public.lc_read_recipe(b,recipe);raise exception 'FAIL recipe outsider';exception when insufficient_privilege then n:=n+1;end;
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',u,'role','authenticated','aal','aal2')::text,true);
+ if public.lc_save_catalog(b,0,d)<>1 then raise exception 'FAIL save';end if;n:=n+1;
+ begin perform public.lc_save_catalog(b,0,d);raise exception 'FAIL stale save';exception when serialization_failure then n:=n+1;end;
+ if exists(select 1 from public.lc_catalog_public where business_id=b) then raise exception 'FAIL draft leak';end if;n:=n+1;
+ if public.lc_publish_catalog(b,1,0,1)<>1 then raise exception 'FAIL publish';end if;n:=n+1;
+ select snapshot into snap from public.lc_catalog_public where business_id=b;
+ if snap::text like '%123456%' or snap::text like '%family_id%' or snap->>'commerceEnabled'<>'false' then raise exception 'FAIL private leak';end if;n:=n+1;
+ d2:=jsonb_set(d,'{categories,0,name}','"Renombrada"');
+ if public.lc_save_catalog(b,1,d2)<>2 then raise exception 'FAIL rename';end if;n:=n+1;
+ if (select snapshot from public.lc_catalog_public where business_id=b)<>snap then raise exception 'FAIL draft affects public';end if;n:=n+1;
+ begin perform public.lc_publish_catalog(b,2,0,2);raise exception 'FAIL stale publish';exception when serialization_failure then n:=n+1;end;
+ if public.lc_publish_catalog(b,2,1,2)<>2 then raise exception 'FAIL second publish';end if;n:=n+1;
+ if (select snapshot#>>'{categories,0,name}' from public.lc_catalog_public where business_id=b)<>'Renombrada' then raise exception 'FAIL rename published';end if;n:=n+1;
+ if public.lc_publish_catalog(b,1,2,2)<>3 then raise exception 'FAIL restore';end if;n:=n+1;
+ if (select snapshot from public.lc_catalog_public where business_id=b)<>snap then raise exception 'FAIL restore content';end if;n:=n+1;
+ begin perform public.lc_save_catalog(b,2,jsonb_set(d,'{productCategories,0,category_id}','"bbbb0000-0000-4000-8000-000000000099"'));raise exception 'FAIL FK';exception when foreign_key_violation then n:=n+1;end;
+ if (public.lc_read_catalog(b)->>'revision')::int<>2 then raise exception 'FAIL atomic save';end if;n:=n+1;
+ begin perform public.lc_save_catalog(b,2,d||'{"secret":"no"}'::jsonb);raise exception 'FAIL unknown field';exception when invalid_parameter_value then n:=n+1;end;
+ begin perform public.lc_save_catalog(b,2,jsonb_set(d,'{variants,0,min_qty}','"2"'));raise exception 'FAIL numeric string';exception when invalid_parameter_value then n:=n+1;end;
+ if public.lc_save_catalog(b,2,jsonb_set(d,'{categories,0,active}','false'))<>3 then raise exception 'FAIL archive draft';end if;
+ begin perform public.lc_publish_catalog(b,3,3,3);raise exception 'FAIL invalid release';exception when check_violation then n:=n+1;end;
+ if (public.lc_read_catalog(b)->>'publication')::int<>3 then raise exception 'FAIL atomic publish';end if;n:=n+1;
+ if public.lc_save_recipe(b,recipe,0,rd)<>1 then raise exception 'FAIL save recipe';end if;n:=n+1;
+ if public.lc_read_recipe(b,recipe)->>'title'<>'Receta ficticia' then raise exception 'FAIL read recipe';end if;n:=n+1;
+ begin perform public.lc_save_recipe(b,recipe,0,rd);raise exception 'FAIL stale recipe';exception when serialization_failure then n:=n+1;end;
+ begin perform public.lc_save_recipe(b,recipe,1,jsonb_set(rd,'{waste_units}','6'));raise exception 'FAIL yield';exception when check_violation then n:=n+1;end;
+ if (public.lc_read_recipe(b,recipe)->>'revision')::int<>1 then raise exception 'FAIL recipe atomic';end if;n:=n+1;
+ if public.lc_save_recipe(b,recipe,1,jsonb_set(rd,'{status}','"archived"'))<>2 then raise exception 'FAIL archive recipe';end if;n:=n+1;
+ begin perform 1 from lc_private.recipe_revision;raise exception 'FAIL direct private access';exception when insufficient_privilege then n:=n+1;end;
+ begin update public.lc_catalog_public set publication=0 where business_id=b;raise exception 'FAIL direct publish';exception when insufficient_privilege then n:=n+1;end;
+ if n<>30 then raise exception 'FAIL count %',n;end if;perform set_config('lc.test_passed',n::text,true);
+end $test$;
+reset role;
+update lc_private.membership set active=false where business_id=current_setting('lc.test_business')::uuid and user_id='aaaa0000-0000-4000-8000-000000000031';
+set local role authenticated;
+do $$ begin
+ begin perform public.lc_read_catalog(current_setting('lc.test_business')::uuid);raise exception 'FAIL revoked';exception when insufficient_privilege then null;end;
+end $$;
+reset role;
+set local role anon;
+do $$ begin
+ begin perform public.lc_read_catalog(current_setting('lc.test_business')::uuid);raise exception 'FAIL anonymous RPC';exception when insufficient_privilege then null;end;
+ if not exists(select 1 from public.lc_catalog_public where business_id=current_setting('lc.test_business')::uuid) then raise exception 'FAIL public read';end if;
+end $$;
+reset role;
+select current_setting('lc.test_passed')::int+3 as passed;
+rollback;
