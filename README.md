@@ -23,3 +23,6 @@ Identidad original SVG, boceto vectorial de torta configurable en 24 combinacion
 
 ## v0.4 — Catálogo basado en Instagram
 17 referencias documentadas con enlaces a las publicaciones originales. Las ilustraciones son decorativas y no representan fotografías de producto. No se utilizan enlaces CDN temporales de Instagram; se requieren archivos originales aprobados para el lanzamiento. No se confirma disponibilidad actual ni se inventan precios.
+
+## v0.5 — Identidad, fichas y consultas
+`catalog.json` contiene 17 referencias, precios COP pendientes, variantes, alérgenos, fuentes y configuración de contacto. Búsqueda, filtro, detalle y borrador local; Instagram disponible y WhatsApp condicionado a confirmación. Sin Shopify ni pagos. Ver `UX-AUDIT.md`. HTML conserva fallback: sincronizar las tarjetas si se cambia el conjunto de IDs.
