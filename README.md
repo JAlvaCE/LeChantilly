@@ -30,3 +30,6 @@ Reglas en [PRODUCTION-RULES.md](docs/business/PRODUCTION-RULES.md). Gift Studio 
 
 ## v0.12.0 — Laboratorio de operaciones
 [Modelo operativo](docs/business/OPERATING-MODEL.md). /produccion.html ofrece un simulador local de lotes completos, mermas, costos, utilidad por hora y presupuestos de recursos, con 4 escenarios ficticios. No se envían ni guardan entradas; exportación manual de escenarios de prueba. No es aprobación de producción ni cotización. Backend conserva v0.10.1 y restricciones de Gift Studio. Las recetas reales deben capturarse en privado cuando exista Studio autenticado.
+
+## v0.13 — Preparación de Mi negocio
+/mi-negocio.html es una práctica pública sin datos reales. Migración SQL propuesta en database/migrations, no aplicada. Ver docs/adr/0002-owner-first-studio.md. Autenticación, DB y hosting comercial pendientes de autorización y pruebas.

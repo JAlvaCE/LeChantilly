@@ -17,3 +17,6 @@ Antes de implementar cambios comerciales revisar [reglas de producción](docs/bu
 
 ## Revisión de operaciones ampliada
 Incluir analista financiero (costo integral y utilidad/hora), calidad alimentaria (alérgenos, vida útil y trazabilidad), analista de procesos (tiempo, recursos y simplificación) y QA independiente (supuestos, casos frontera y evidencia). Usar [modelo operativo](docs/business/OPERATING-MODEL.md) y no promover escenarios ficticios a reglas aprobadas. Preservar descanso y revisión manual de propietaria.
+
+## Experiencia de propietaria
+Priorizar tareas cotidianas, acceso móvil, español sencillo y pasos guiados. No mostrar herramientas de desarrollo en Studio privado. Probar con la propietaria; no aprobar interfaz por estética solamente. Ver ADR 0002.
