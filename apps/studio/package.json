@@ -1,0 +1,9 @@
+{
+  "name": "@lechantilly/studio-dev",
+  "private": true,
+  "type": "module",
+  "version": "0.14.0-dev",
+  "engines": {
+    "node": "22.x"
+  }
+}
