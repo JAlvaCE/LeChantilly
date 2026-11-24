@@ -26,3 +26,10 @@ Identidad original SVG, boceto vectorial de torta configurable en 24 combinacion
 
 ## v0.5 — Identidad, fichas y consultas
 `catalog.json` contiene 17 referencias, precios COP pendientes, variantes, alérgenos, fuentes y configuración de contacto. Búsqueda, filtro, detalle y borrador local; Instagram disponible y WhatsApp condicionado a confirmación. Sin Shopify ni pagos. Ver `UX-AUDIT.md`. HTML conserva fallback: sincronizar las tarjetas si se cambia el conjunto de IDs.
+
+## v0.6 — Arquitectura modular y Studio local
+- Inicio editorial con 6 referencias destacadas; 17 referencias en /catalogo.html.
+- Detalle por URL /producto.html?id=red-velvet; configurador avanzado /personaliza.html; Studio local /studio.html (sin autenticación, no usar datos privados).
+- Reglas puras en domain.mjs; ejecutar `node --test tests/*.test.mjs` (Node 22+). Para desarrollo local: `python -m http.server 8000` y abrir localhost:8000.
+- Consultas y fotos de inspiración permanecen locales; solo se comparten mediante acción explícita. Studio exporta borradores JSON para revisión, no modifica la tienda.
+- Consultar ARCHITECTURE.md para arquitectura objetivo, seguridad, QA, publicación y transferencia. Sin Shopify ni pagos. Noindex y estado de previsualización permanecen.
