@@ -1,8 +1,7 @@
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
 import {test} from 'node:test';
-import {isDate,normalize,safeInstagram,validateCatalog,filterProducts,priceLabel,buildQuote,capacityPlan,costPlan} from '../domain.mjs';
-const data=JSON.parse(await readFile(new URL('../catalog.json',import.meta.url),'utf8'));
+import {isDate,normalize,safeInstagram,validateCatalog,filterProducts,priceLabel,buildQuote,capacityPlan,costPlan} from '../src/domain.mjs';
+import data from '../src/catalog-data.mjs';
 test("catálogo íntegro",()=>assert.ok((()=>validateCatalog(data).length===0)()));
 test("17 referencias",()=>assert.ok((()=>data.products.length===17)()));
 test("sin checkout",()=>assert.ok((()=>data.products.every(p=>p.activeForCheckout===false))()));

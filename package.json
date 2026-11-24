@@ -1,0 +1,13 @@
+{
+  "name": "lechantilly",
+  "version": "0.7.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test apps/backend/tests/*.test.mjs tests/*.test.mjs",
+    "check": "npm --prefix apps/frontend run check",
+    "verify": "npm run check && npm test"
+  }
+}

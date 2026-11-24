@@ -12,3 +12,6 @@ Dos aplicaciones y despliegues independientes. Frontend: https://lechantilly.ver
 
 ## Siguiente etapa
 Migración gradual a Next.js + TypeScript / NestJS + TypeScript, PostgreSQL y Prisma, identidad y administración autenticada, CI obligatorio y pruebas E2E, previo a habilitar comercio. Shopify/pagos aplazados. Las fotos reales y la confirmación de datos comerciales siguen pendientes.
+
+## Verificación desde la raíz
+`npm run verify` ejecuta validación de sintaxis del cliente, pruebas de dominio, API/HTTP y estructura. Los tests HTTP usan Request/Response de Node sin llamadas a producción. La suite está preparada para CI; no confundir su presencia en el repositorio con una ejecución remota exitosa. La versión anterior permanece recuperable en el commit `2f6e55fabe5bdd72d2cea0fe44dce3fc5fa7ddee`.

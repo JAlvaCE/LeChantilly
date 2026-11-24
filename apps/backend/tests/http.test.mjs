@@ -1,0 +1,15 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {endpoint} from '../src/http.mjs';
+const origin='https://lechantilly.vercel.app';
+const call=(route,method='GET',body,headers={})=>endpoint(route).fetch(new Request('https://lechantilly-api.vercel.app/api/v1/'+route,{method,headers:{...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},...(body!==undefined?{body:typeof body==='string'?body:JSON.stringify(body)}:{})}));
+test('health returns JSON, no-store and commerce disabled',async()=>{const r=await call('health');assert.equal(r.status,200);assert.equal(r.headers.get('cache-control'),'no-store');assert.equal((await r.json()).commerceEnabled,false)});
+test('CORS exact frontend',async()=>{const r=await call('catalog','GET',undefined,{Origin:origin});assert.equal(r.headers.get('access-control-allow-origin'),origin);assert.equal(r.status,200)});
+test('CORS rejects unrelated origin',async()=>{const r=await call('catalog','GET',undefined,{Origin:'https://unrelated.example'});assert.equal(r.status,403);assert.equal(r.headers.get('access-control-allow-origin'),null)});
+test('preflight supports JSON post',async()=>{const r=await call('quote-preview','OPTIONS',undefined,{Origin:origin});assert.equal(r.status,204);assert.match(r.headers.get('access-control-allow-methods'),/POST/);assert.match(r.headers.get('access-control-allow-headers'),/Content-Type/i)});
+test('valid quote never creates order',async()=>{const r=await call('quote-preview','POST',{productId:'LC-001',quantity:2},{Origin:origin});assert.equal(r.status,200);assert.equal((await r.json()).orderCreated,false)});
+test('invalid quantity rejected',async()=>assert.equal((await call('quote-preview','POST',{productId:'LC-001',quantity:0})).status,422));
+test('malformed JSON rejected',async()=>assert.equal((await call('quote-preview','POST','{')).status,400));
+test('unsupported content type rejected',async()=>assert.equal((await call('quote-preview','POST','{}',{'Content-Type':'text/plain'})).status,415));
+test('oversize body rejected',async()=>assert.equal((await call('quote-preview','POST',{notes:'x'.repeat(20000)})).status,413));
+test('wrong method rejected',async()=>assert.equal((await call('quote-preview')).status,405));
