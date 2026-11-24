@@ -27,3 +27,6 @@ Inicio por intención, /personaliza.html (wizard de cuatro pasos y boceto), /bol
 
 ## v0.10.1 — Viabilidad operativa
 Reglas en [PRODUCTION-RULES.md](docs/business/PRODUCTION-RULES.md). Gift Studio limita composiciones a bloques provisionales de 6 por variedad de una familia. Toda consulta requiere revisión manual. No son mínimos comerciales aprobados. AGENTS.md exige revisión de operaciones antes de nuevas funciones comerciales.
+
+## v0.12.0 — Laboratorio de operaciones
+[Modelo operativo](docs/business/OPERATING-MODEL.md). /produccion.html ofrece un simulador local de lotes completos, mermas, costos, utilidad por hora y presupuestos de recursos, con 4 escenarios ficticios. No se envían ni guardan entradas; exportación manual de escenarios de prueba. No es aprobación de producción ni cotización. Backend conserva v0.10.1 y restricciones de Gift Studio. Las recetas reales deben capturarse en privado cuando exista Studio autenticado.
