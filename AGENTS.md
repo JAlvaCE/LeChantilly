@@ -14,3 +14,6 @@ Antes de cambios: revisar documentos, alcance, dependencias, riesgos, capacidad 
 
 ## Regla obligatoria de viabilidad de negocio
 Antes de implementar cambios comerciales revisar [reglas de producción](docs/business/PRODUCTION-RULES.md). La revisión de producto incluye el rol de responsable de operaciones/producción: recetas, lotes, formatos, capacidad, conservación, alérgenos, costo total, mermas y margen. La validación técnica no equivale a factibilidad. Datos operativos desconocidos bloquean aprobación automática; no inventar reglas comerciales ni presentar propuestas como confirmadas.
+
+## Revisión de operaciones ampliada
+Incluir analista financiero (costo integral y utilidad/hora), calidad alimentaria (alérgenos, vida útil y trazabilidad), analista de procesos (tiempo, recursos y simplificación) y QA independiente (supuestos, casos frontera y evidencia). Usar [modelo operativo](docs/business/OPERATING-MODEL.md) y no promover escenarios ficticios a reglas aprobadas. Preservar descanso y revisión manual de propietaria.

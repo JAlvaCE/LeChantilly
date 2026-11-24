@@ -1,9 +1,9 @@
 {
   "name": "@lechantilly/frontend",
-  "version": "0.10.1",
+  "version": "0.12.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check app.js && node --check api-client.mjs && node --check pages-shared.mjs && node --check catalog-page.mjs && node --check product-page.mjs && node --check studio.mjs && node --check wizard.mjs && node --check bag-store.mjs && node --check bag-page.mjs && node --check journey-nav.mjs && node --check gift.mjs && node --check atelier-presets.mjs"
+    "check": "node --check app.js && node --check api-client.mjs && node --check pages-shared.mjs && node --check catalog-page.mjs && node --check product-page.mjs && node --check studio.mjs && node --check wizard.mjs && node --check bag-store.mjs && node --check bag-page.mjs && node --check journey-nav.mjs && node --check gift.mjs && node --check atelier-presets.mjs && node --check production-engine.mjs && node --check production-page.mjs"
   }
 }
