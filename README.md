@@ -39,3 +39,6 @@ Supabase lechantilly-dev: esquema versionado de catálogo, familias productivas 
 
 ## v0.14.0-dev — Studio de desarrollo
 Editor guiado de catálogo, presentaciones, colecciones y familias. Práctica temporal sin almacenamiento. BFF conectado a Supabase por clave pública de Preview, acceso real bloqueado hasta onboarding seguro. Ver ADR 0004. No comercial.
+
+## v0.14.1-dev — Studio consolidado
+Una entrada para catálogo dinámico, presupuestos, agenda, simulación productiva y referencias históricas. Archivo de migración privado y 17 referencias preservadas. Ver docs/quality/FUNCTIONAL-BASELINE.md. Solo Preview protegido; no datos reales ni comercio.
