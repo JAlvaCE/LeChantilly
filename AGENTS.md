@@ -23,3 +23,6 @@ Priorizar tareas cotidianas, acceso móvil, español sencillo y pasos guiados. N
 
 ## Publicación del catálogo
 Categorías y referencias dinámicas; no identificadores comerciales fijos como reglas de negocio. Borradores inmutables, publicación atómica, autorización por negocio y MFA, control de concurrencia. Ver ADR 0003 y regression SQL. No conectar entorno de desarrollo a producción ni admitir datos reales hasta completar gates.
+
+## Studio de desarrollo
+`apps/studio` solo en Vercel Preview protegido, separado de la tienda pública. No activar acceso privado ni introducir datos reales sin confirmar invitación, registro cerrado, OTP/SMTP, MFA, recuperación, pruebas de permisos extremo a extremo y copias de seguridad. Ver ADR 0004. Distinguir práctica temporal de persistencia autenticada.
